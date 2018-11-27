@@ -41,7 +41,7 @@ class CanonicalRepresentableTests: XCTestCase {
     }
 
     func testCanonicalRepresentable() {
-        let root = try! ComponentFactory.of(TestComponent.self).build()
+        let root = try! ComponentFactory.of(TestComponent.self).build(())
 
         XCTAssertEqual(root.normal, "Hey!")
         XCTAssertEqual(root.implicitelyUnboxedOptional, "Hey!")
@@ -58,7 +58,7 @@ class CanonicalRepresentableTests: XCTestCase {
 
     // verifies #26
     func testUnboxProtocol() {
-        let bar = try! ComponentFactory.of(BarComponent.self).build()
+        let bar = try! ComponentFactory.of(BarComponent.self).build(())
         XCTAssertNotNil(bar.foo)
     }
 

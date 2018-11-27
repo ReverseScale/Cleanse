@@ -14,13 +14,13 @@ import XCTest
 
 class ReceiptBindingTests: XCTestCase {
     func testDevelopmentComponent() {
-        let userService = try! ComponentFactory.of(UserServiceComponent<DevelopmentUserServiceModule>.self).build()
+        let userService = try! ComponentFactory.of(UserServiceComponent<DevelopmentUserServiceModule>.self).build(())
 
         XCTAssertEqual(userService.getNameForUser(userID: "user-1"), "Development User One")
     }
 
     func testProductionComponent() {
-        let userService = try! ComponentFactory.of(UserServiceComponent<ProductionUserServiceModule>.self).build()
+        let userService = try! ComponentFactory.of(UserServiceComponent<ProductionUserServiceModule>.self).build(())
         XCTAssertEqual(userService.getNameForUser(userID: "user-1"), "User One")
     }
 }

@@ -137,7 +137,7 @@ struct SimpleModule : RootComponent {
 class CleanseTests: XCTestCase {
 
     func test__Simplest() {
-        let value = try! ComponentFactory.of(SimpleModule.self).build()
+        let value = try! ComponentFactory.of(SimpleModule.self).build(())
         XCTAssertEqual(value, 3)
     }
     
@@ -223,7 +223,7 @@ class CleanseTests: XCTestCase {
     }
 
     func test_CollectionBuilderBinding() {
-        let results = try! ComponentFactory.of(CollectionBuilderBindingTestComponent.self).build()
+        let results = try! ComponentFactory.of(CollectionBuilderBindingTestComponent.self).build(())
         XCTAssertEqual(results.taggedIntCollection1.get().sorted(), [1,2,3,8,9,10,11])
     }
 }

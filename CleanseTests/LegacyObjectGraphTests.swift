@@ -148,13 +148,13 @@ class LegacyObjectGraphTests: XCTestCase {
     }
 
     func testLegacyObjectGraph() {
-        let objectGraph = try! ComponentFactory.of(SimpleLegacyComponent.self).build()
+        let objectGraph = try! ComponentFactory.of(SimpleLegacyComponent.self).build(())
         XCTAssertEqual(objectGraph.objectForClass(cls: NSString.self, withName: "String1") as! NSString as String, "String 1")
     }
     
     
     func testLegacyObjectGraph_Provider() {
-        let objectGraph = try! ComponentFactory.of(SimpleLegacyComponent.self).build()
+        let objectGraph = try! ComponentFactory.of(SimpleLegacyComponent.self).build(())
         XCTAssertEqual((objectGraph.providerForClass(cls: Foo.self)() as! Foo).string1, "String 1")
     }
 
@@ -169,7 +169,7 @@ class LegacyObjectGraphTests: XCTestCase {
     
 
     func testLegacyObjectGraph_PropertyInjection() {
-        let objectGraph = try! ComponentFactory.of(PropertyInjectionComponent.self).build()
+        let objectGraph = try! ComponentFactory.of(PropertyInjectionComponent.self).build(())
 
         let moreFreeBeer = MoreFreeBeer()
         objectGraph.injectPropertiesIntoObject(object: moreFreeBeer)
@@ -181,7 +181,7 @@ class LegacyObjectGraphTests: XCTestCase {
     }
     
     func testLegacyObjectGraph_PropertyInjection_Injected() {
-        let objectGraph = try! ComponentFactory.of(PropertyInjectionComponent.self).build()
+        let objectGraph = try! ComponentFactory.of(PropertyInjectionComponent.self).build(())
 
         let moreFreeBeer = objectGraph.objectForClass(cls: MoreFreeBeer.self) as! MoreFreeBeer
         
@@ -199,7 +199,7 @@ class LegacyObjectGraphTests: XCTestCase {
         }
     }
     func testLegacyObjectGraph_PropertyInjection_OverridingString2() {
-        let objectGraph = try! ComponentFactory.of(PropertyInjectionLegacyComponentOverridingString2.self).build()
+        let objectGraph = try! ComponentFactory.of(PropertyInjectionLegacyComponentOverridingString2.self).build(())
 
         let moreFreeBeer = objectGraph.objectForClass(cls: MoreFreeBeer.self) as! MoreFreeBeer
         

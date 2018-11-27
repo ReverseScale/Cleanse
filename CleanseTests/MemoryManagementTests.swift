@@ -93,7 +93,7 @@ class MemoryManagementTests: XCTestCase {
         weak var s2: Single2? = nil
         
         autoreleasepool {
-            let root = try! ComponentFactory.of(MemoryManagementTestsComponent.self).build()
+            let root = try! ComponentFactory.of(MemoryManagementTestsComponent.self).build(())
             s1 = root.single1
             s2 = root.single2
             
@@ -122,7 +122,7 @@ class MemoryManagementTests: XCTestCase {
         weak var s2: Single2? = nil
         
         autoreleasepool {
-            let root = try! ComponentFactory.of(MemoryManagementTestsComponent.self).build()
+            let root = try! ComponentFactory.of(MemoryManagementTestsComponent.self).build(())
             s1 = root.single1
             s2 = root.single2
             
@@ -151,7 +151,7 @@ class MemoryManagementTests: XCTestCase {
         weak var s3p: SingleCollectionElement? = nil
         
         autoreleasepool {
-            let root = try! ComponentFactory.of(MemoryManagementTestsComponent.self).build()
+            let root = try! ComponentFactory.of(MemoryManagementTestsComponent.self).build(())
 
             let c = root.collection.sorted { $0.value < $1.value }
             
